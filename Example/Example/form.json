@@ -1,0 +1,206 @@
+[
+  {
+    "<TextCell + TextCellIdentifier>": {
+      "textField?": {
+        "placeholder": "Thomas",
+        "<key>": "name",
+        "<validators>": {
+          "required": true
+        }
+      },
+      "titleLabel": {
+        "text": "Name"
+      }
+    }
+  },
+  {
+    "<= + =>": {
+      "textField?": {
+        "placeholder": "Bakker",
+        "<key>": "surname",
+        "<validators>": {
+          "required": true
+        }
+      },
+      "titleLabel": {
+        "text": "Surname"
+      }
+    }
+  },
+  {
+    "<MultiTextCell + MultiTextCellIdentifier>": {
+      "dayTextField?": {
+        "placeholder": "01",
+        "keyboardType": "UIKeyboardTypeNumberPad",
+        "<key>": "dob_day",
+        "<validators>": {
+          "min_length": 1,
+          "max_length": 2
+        }
+      },
+      "monthTextField?": {
+        "placeholder": "11",
+        "keyboardType": "UIKeyboardTypeNumberPad",
+        "<key>": "dob_month",
+        "<validators>": {
+          "min_length": 1,
+          "max_length": 2
+        }
+      },
+      "yearTextField?": {
+        "placeholder": "1990",
+        "keyboardType": "UIKeyboardTypeNumberPad",
+        "<key>": "dob_year",
+        "<validators>": {
+          "equal_length": 4
+        }
+      },
+      "titleLabel": {
+        "text": "Date of birth"
+      }
+    }
+  },
+  {
+    "<SegmentedCell + SegmentedCellIdentifier>": {
+      "segmentedControl?": {
+        "sectionTitle0": "Male",
+        "sectionTitle1": "Female",
+        "tintColor": "#6F3F83",
+        "<value>": 0,
+        "<key>": "gender",
+        "<validators>": {
+          "required": true
+        }
+      }
+    }
+  },
+  {
+    "<section>": 1
+  },
+  {
+    "<TextCell + TextCellIdentifier>": {
+      "textField?": {
+        "placeholder": "Klundert",
+        "<key>": "city",
+        "<validators>": {
+          "required": true
+        }
+      },
+      "titleLabel": {
+        "text": "City"
+      }
+    }
+  },
+  {
+    "<= + =>": {
+      "textField?": {
+        "placeholder": "Prins Willemstraat 1",
+        "<key>": "address",
+        "<validators>": {
+          "required": true
+        }
+      },
+      "titleLabel": {
+        "text": "Address"
+      }
+    }
+  },
+  {
+    "<= + =>": {
+      "textField?": {
+        "placeholder": "+31 6 12345678",
+        "keyboardType": "UIKeyboardTypePhonePad",
+        "<key>": "phone",
+        "<validators>": {
+          "required": true
+        }
+      },
+      "titleLabel": {
+        "text": "Phone"
+      }
+    }
+  },
+  {
+    "<= + =>": {
+      "textField?": {
+        "placeholder": "thomas.bakker@domain.com",
+        "keyboardType": "UIKeyboardTypeEmailAddress",
+        "<key>": "email",
+        "<validators>": {
+          "type": "email"
+        }
+      },
+      "titleLabel": {
+        "text": "Email"
+      }
+    }
+  },
+  {
+    "<section>": 2
+  },
+  {
+    "<StepperCell + StepperCellIdentifier>": {
+      "stepperControl?": {
+        "stepValue": 1,
+        "tintColor": "#6F3F83",
+        "<key>": "children_count",
+        "<display>": "displayLabel",
+        "<value>": "0"
+      },
+      "titleLabel": {
+        "text": "Children"
+      }
+    }
+  },
+  {
+    "<SwitchCell + SwitchCellIdentifier>": {
+      "switchControl?": {
+        "onTintColor": "#6F3F83",
+        "<value>": true,
+        "<key>": "driver_license"
+      },
+      "titleLabel": {
+        "text": "Driver licence"
+      }
+    }
+  },
+  {
+    "<SliderCell + SliderCellIdentifier>": {
+      "sliderControl?": {
+        "stepValue": 1,
+        "minimumValue": 0,
+        "maximumValue": 100,
+        "minimumTrackTintColor": "#6F3F83",
+        "<value>": 50,
+        "<key>": "test"
+      },
+      "titleLabel": {
+        "text": "Center it"
+      }
+    }
+  },
+  {
+    "<section>": 3
+  },
+  {
+    "<ButtonCell + ButtonCellIdentifier>": {
+      "titleLabel": {
+        "text": "Accept",
+        "textColor": "#6F3F83"
+      }
+    }
+  },
+  {
+    "<section>": 4
+  },
+  {
+    "<UITableViewCell + Cell>": {
+      "imageView": {
+        "image": "ic_turtle#6F3F83"
+      },
+      "textLabel": {
+        "text": "Colored turtle :)"
+      }
+    }
+  }
+]
