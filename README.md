@@ -72,7 +72,7 @@ As well as delegates for `UIKit` controls:
 
 ## JSON Rules
 
-Simply remember that you should describe your custom cell in JSON just using property names and values for them. Of course, __reserved words__ and __special chars__ are used too. You can find reserved words and special chars in a [constants header](PureForm/Common/PFConstants.h).
+Describe your custom cell in JSON just using property names and values for them. Of course, __reserved words__ and __special chars__ are used too. You can find reserved words and special chars in a [constants header](PureForm/Common/PFConstants.h).
 
 ### Basics
 
@@ -170,6 +170,10 @@ __Validators are used in 2 level and they should be nested into `<validators>`._
 ]
 ```
 
+<p align='center'>
+	<img height='600' src='https://github.com/unboxme/PureForm/blob/master/Screenshots/centered_text.png'>
+</p>
+
 * Now let's make a login form with validators:
 
  ```json
@@ -214,7 +218,12 @@ __Validators are used in 2 level and they should be nested into `<validators>`._
   }
 ]
 ```
-* It remains only to validate entered values and save they into the dictionary: 
+
+<p align='center'>
+	<img height='600' src='https://github.com/unboxme/PureForm/blob/master/Screenshots/clean_form.png'>
+</p>
+
+* It remains only to validate entered values and save they into the dictionary. Credentials from left form satisfies the validators and `[self.formController validate]` will return `YES`:
 
  ```objc
 if ([self.formController validate]) {
@@ -222,6 +231,11 @@ if ([self.formController validate]) {
 	// Send it to server
 }
  ```
+ 
+ <p align='center'>
+	<img height='600' src='https://github.com/unboxme/PureForm/blob/master/Screenshots/filled_form.png'>
+	<img height='600' src='https://github.com/unboxme/PureForm/blob/master/Screenshots/filled_form_error.png'>
+</p>
 
 ## Notes
 
