@@ -241,3 +241,8 @@ if ([self.formController validate]) {
 
 * Example project files will open properly only in Xcode 8;
 * There is no autoscroll to the active field in the example project.
+
+## TODO
+
+- [ ] Remove limit of nesting
+- [ ] Keyboard avoiding
