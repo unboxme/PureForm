@@ -24,6 +24,7 @@
 
     PFSettings *settings = [[PFSettings alloc] init];
     settings.keyboardTypeValidation = YES;
+    settings.keyboardAvoiding = YES;
     settings.formDelegate = self;
     settings.tableViewDelegate = self;
 

@@ -158,9 +158,9 @@
 
 - (void)assignDelegateToView:(id)view {
     if (!self.inputViewDelegate) {
-        self.inputViewDelegate = [[PFInputViewDelegate alloc] init];
-        self.inputViewDelegate.settings = self.settings;
-        self.inputViewDelegate.models = self.dataSource;
+        self.inputViewDelegate = [[PFInputViewDelegate alloc] initWithModels:self.dataSource
+                                                                   tableView:self.tableView
+                                                                    settings:self.settings];
     }
 
     if ([view respondsToSelector:@selector(delegate)]) {

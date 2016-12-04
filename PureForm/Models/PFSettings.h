@@ -37,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic, getter=isKeyboardTypeValidation) BOOL keyboardTypeValidation;
 
 /**
+ Provides an automatic keyboard avoiding.
+ `NO` by default.
+ */
+@property(assign, nonatomic, getter=isKeyboardAvoiding) BOOL keyboardAvoiding;
+
+/**
  The height for each cell in the table view.
  `nil` by default.
  */

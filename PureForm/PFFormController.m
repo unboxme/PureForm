@@ -114,6 +114,10 @@
         [self.settings.formDelegate validationDidFailWithErrors:[NSArray arrayWithArray:errors]];
     }
 
+    if (isValid && [self.settings.formDelegate respondsToSelector:@selector(validationDidEndSuccessfully)]) {
+        [self.settings.formDelegate validationDidEndSuccessfully];
+    }
+
     return isValid;
 }
 

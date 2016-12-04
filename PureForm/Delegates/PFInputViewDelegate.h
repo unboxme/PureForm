@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UITextField.h>
+#import <UIKit/UIKit.h>
 
 @class PFModel;
 @class PFSettings;
@@ -30,13 +30,9 @@
 @interface PFInputViewDelegate : NSObject <UITextFieldDelegate>
 
 /**
- The settings for controlling PureForm actions.
+ @return The instance of PFInputViewDelegate.
  */
-@property(weak, nonatomic) PFSettings *settings;
+- (instancetype)initWithModels:(NSMutableArray<NSMutableArray<PFModel *> *> *)models tableView:(UITableView *)tableView settings:(PFSettings *)settings;
 
-/**
- A kind of the data source.
- */
-@property(weak, nonatomic) NSMutableArray<NSMutableArray<PFModel *> *> *models;
 
 @end

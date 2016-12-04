@@ -44,8 +44,13 @@ static void *PFOriginalInputViewPropertyKey = &PFOriginalInputViewPropertyKey;
 
 @interface PFInputViewDelegate ()
 
+@property(weak, nonatomic) PFSettings *settings;
+@property(weak, nonatomic) NSMutableArray<NSMutableArray<PFModel *> *> *models;
+
 @property(strong, nonatomic) PFInputView *currentInputView;
 @property(strong, nonatomic) id originalValue;
+@property(strong, nonatomic) UITableView *tableView;
+@property(strong, nonatomic) NSValue *showedKeyboardFrame;
 
 @end
 
@@ -65,6 +70,33 @@ static void *PFOriginalInputViewPropertyKey = &PFOriginalInputViewPropertyKey;
 
 - (void)setOriginalValue:(id)originalValue {
     objc_setAssociatedObject(self, PFOriginalInputViewPropertyKey, originalValue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (instancetype)initWithModels:(NSMutableArray<NSMutableArray<PFModel *> *> *)models tableView:(UITableView *)tableView settings:(PFSettings *)settings {
+    self = [super init];
+
+    if (self) {
+        _tableView = tableView;
+        _settings = settings;
+        _models = models;
+
+        if (settings.isKeyboardAvoiding) {
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(keyboardWillShow:)
+                                                         name:UIKeyboardWillShowNotification
+                                                       object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(keyboardWillHide:)
+                                                         name:UIKeyboardWillHideNotification
+                                                       object:nil];
+        }
+    }
+
+    return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)searchAndAssignCurrentInputViewByView:(UIView *)view {
@@ -295,6 +327,39 @@ static void *PFOriginalInputViewPropertyKey = &PFOriginalInputViewPropertyKey;
     }
 
     return YES;
+}
+
+#pragma mark - Keyboard Avoiding
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+
+    CGRect viewFrame = self.tableView.frame;
+    viewFrame.size.height += self.showedKeyboardFrame.CGRectValue.size.height;
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.tableView setFrame:viewFrame];
+    [UIView commitAnimations];
+
+    self.showedKeyboardFrame = nil;
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+   if (self.showedKeyboardFrame) {
+        return;
+    }
+
+    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+
+    CGRect viewFrame = self.tableView.frame;
+    viewFrame.size.height -= keyboardFrame.size.height;
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.tableView setFrame:viewFrame];
+    [UIView commitAnimations];
+
+    self.showedKeyboardFrame = [NSValue valueWithCGRect:keyboardFrame];
 }
 
 @end

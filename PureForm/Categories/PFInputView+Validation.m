@@ -83,7 +83,7 @@
                     return validator;
                 }
 
-                if (![value isKindOfClass:[NSString class]]) {
+                if ([value isKindOfClass:[NSString class]]) {
                     NSString *string = value;
                     if (string.length != [validator.value integerValue]) {
                         return validator;
