@@ -34,6 +34,7 @@ PureForm is clean and pretty easy to use in several steps:
     ```objc
     PFSettings *settings = [[PFSettings alloc] init];
     settings.keyboardTypeValidation = YES;
+    settings.keyboardAvoiding = YES;
     settings.formDelegate = self;
     settings.tableViewDelegate = self;
 
@@ -57,6 +58,7 @@ PureForm is clean and pretty easy to use in several steps:
 The [settings header](PureForm/Models/PFSettings.h) is fully documented. There are main params here you can set:
 
 * `keyboardTypeValidation`
+* `keyboardAvoiding`
 * `failureReasons`
 * `cellHeight`
 
@@ -239,13 +241,12 @@ if ([self.formController validate]) {
 
 ## Notes
 
-* Example project files will open properly only in Xcode 8;
-* There is no autoscroll to the active field in the example project.
+* Example project files will open properly only in Xcode 8.
 
 ## TODO
 
 - [ ] Remove limit of nesting
-- [x] Keyboard avoiding
+- [x] Keyboard avoiding (issue #2)
 - [ ] Targets for buttons
 - [ ] Support of UITextView
 - [ ] Wrapper for editing common properties 
