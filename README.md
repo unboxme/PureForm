@@ -245,4 +245,7 @@ if ([self.formController validate]) {
 ## TODO
 
 - [ ] Remove limit of nesting
-- [ ] Keyboard avoiding
+- [x] Keyboard avoiding
+- [ ] Targets for buttons
+- [ ] Support of UITextView
+- [ ] Wrapper for editing common properties 
